@@ -1,5 +1,7 @@
+import Router from 'next/router';
 import * as React from 'react';
 
+import Button from '@/components/buttons/Button';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import NavSearch from '@/components/searchbar/NavSearch';
 
@@ -10,6 +12,10 @@ const links = [
 ];
 
 export default function Header() {
+  function handleOnClick(url: string) {
+    Router.push(url);
+  }
+
   return (
     <header className='sticky top-0 z-50 bg-cdark'>
       <div className='layout flex h-16 items-center justify-between text-clight'>
@@ -32,6 +38,17 @@ export default function Header() {
                 </UnstyledLink>
               </li>
             ))}
+            <li>
+              <Button
+                variant='outline'
+                className='border-clight text-clight hover:border-cdark hover:bg-clight hover:text-cdark'
+                onClick={() => {
+                  handleOnClick('/');
+                }}
+              >
+                Login
+              </Button>
+            </li>
           </ul>
         </nav>
       </div>

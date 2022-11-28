@@ -26,9 +26,11 @@ module.exports = {
         dark: '#222222',
         cdark: '#212121',
         cdark2: '#121212',
+        cdark3: '#000',
         cgray: '#303030',
         cgray2: '#2D2D2D',
         cred: '#E50914',
+        cred2: '#B90009',
         clight: '#FFF',
       },
       keyframes: {
