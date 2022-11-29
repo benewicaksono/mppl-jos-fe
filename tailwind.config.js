@@ -29,6 +29,7 @@ module.exports = {
         cdark3: '#000',
         cgray: '#303030',
         cgray2: '#2D2D2D',
+        cgray3: '#C4C4C4',
         cred: '#E50914',
         cred2: '#B90009',
         clight: '#FFF',

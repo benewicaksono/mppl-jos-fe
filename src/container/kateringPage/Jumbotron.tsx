@@ -9,9 +9,10 @@ export default function Jumbotron() {
         data-aos='zoom-in'
         data-aos-duration='1000'
       >
-        <h1>Temukan Resep Favoritmu</h1>
+        <h1>Pesan Makanan Pilihanmu</h1>
         <p className='mb-4'>
-          Banyak resep untuk kamu coba, langsung saja pilih!
+          Tidak ada waktu untuk memasak? Tinggal klik, masakan kami langsung
+          tersedia di depan pintu anda
         </p>
       </div>
     </>

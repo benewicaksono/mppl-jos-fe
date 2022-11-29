@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-key */
 import * as React from 'react';
 
-import { resepProps } from '@/data/Resep';
+import { kateringProps } from '@/data/Katering';
 
 import Card1 from '@/components/card/Card1';
 
-export default function CardContainer3({ data }: resepProps) {
+export default function CardContainer({ data }: kateringProps) {
   return (
     <div className='bg-cdark3 text-clight'>
       <div
@@ -15,8 +15,10 @@ export default function CardContainer3({ data }: resepProps) {
       >
         <h2 className='text-center'>Resep Favorit</h2>
         <div className='flex flex-wrap justify-center gap-4'>
-          {data.map(({ imgUrl, title, desc }) => {
-            return <Card1 imgUrl={imgUrl} title={title} desc={desc} />;
+          {data.map(({ imgUrl, title, desc, price }) => {
+            return (
+              <Card1 imgUrl={imgUrl} title={title} desc={desc} price={price} />
+            );
           })}
         </div>
       </div>

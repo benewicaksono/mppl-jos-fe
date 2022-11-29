@@ -1,19 +1,31 @@
+import AOS from 'aos';
 import Link from 'next/link';
 import * as React from 'react';
+import { useEffect } from 'react';
+
+import 'aos/dist/aos.css';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-export default function lupaPassword() {
+export default function LupaPassword() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Layout>
       <Seo templateTitle='Lupa Password' />
       <Header />
       <main>
         <section className='bg-cdark3'>
-          <div className='layout flex h-[calc(100vh-122px)] flex-col items-center justify-center gap-4 text-center text-clight'>
+          <div
+            className='layout flex h-[calc(100vh-122px)] flex-col items-center justify-center gap-4 text-center text-clight'
+            data-aos='zoom-in'
+            data-aos-duration='1000'
+          >
             <p className='mb-4 w-96 text-justify'>
               Silakan masukkan email yang anda gunakan pada akun VEGAN.in, kami
               akan mengirimkan link reset password pada email anda.

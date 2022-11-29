@@ -1,4 +1,8 @@
+import AOS from 'aos';
 import * as React from 'react';
+import { useEffect } from 'react';
+
+import 'aos/dist/aos.css';
 
 import { resepFavorit } from '@/data/Resep';
 
@@ -11,6 +15,10 @@ import FlexSection from '@/container/homePage/FlexSection';
 import Jumbotron from '@/container/homePage/Jumbotron';
 
 export default function HomePage() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Layout>
       <Seo />

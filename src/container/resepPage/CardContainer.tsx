@@ -9,7 +9,9 @@ export default function CardContainer({ data }: resepProps) {
   return (
     <div className='bg-cdark3 text-clight'>
       <div className='layout flex flex-col gap-4 py-[70px]'>
-        <h2 className='text-center'>Resep Favorit</h2>
+        <h2 className='text-center' data-aos='fade-up' data-aos-duration='1000'>
+          Resep Favorit
+        </h2>
         <div className='flex flex-wrap justify-center gap-4'>
           {data.map(({ imgUrl, title, desc }) => {
             return <Card1 imgUrl={imgUrl} title={title} desc={desc} />;

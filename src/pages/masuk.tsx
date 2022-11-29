@@ -1,19 +1,31 @@
+import AOS from 'aos';
 import Link from 'next/link';
 import * as React from 'react';
+import { useEffect } from 'react';
+
+import 'aos/dist/aos.css';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-export default function masuk() {
+export default function Masuk() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Layout>
       <Seo templateTitle='Masuk' />
       <Header />
       <main>
         <section className='bg-cdark3'>
-          <div className='layout flex h-[calc(100vh-122px)] flex-col items-center justify-center gap-4 text-center text-black'>
+          <div
+            className='layout flex h-[calc(100vh-122px)] flex-col items-center justify-center gap-4 text-center text-black'
+            data-aos='zoom-in'
+            data-aos-duration='1000'
+          >
             <form className='flex w-96 flex-col gap-4'>
               <input
                 className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'

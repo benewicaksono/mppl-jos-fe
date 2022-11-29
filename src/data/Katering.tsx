@@ -1,106 +1,98 @@
-export type resepType = {
+export type kateringType = {
   id: string;
   imgUrl: string;
   title: string;
   desc: string;
+  price: string;
 };
 
-export interface resepProps {
-  data: resepType[];
+export interface kateringProps {
+  data: kateringType[];
 }
 
-export const resepFavorit: resepType[] = [
+export const semuaKatering: kateringType[] = [
   {
-    id: 'nbYwspYnnUIqeFxR4Osy',
+    id: '6bTJWql54oka0jDmWHSa',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'cTqsHFwfBZbpBvIdLTTV',
+    id: 'FS2WeuaNTEPieNWE45MS',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'rCt6YVqNPi55MAp8NuyM',
+    id: 'ywy15vsAMIDMWjyJo7eu',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
-  },
-];
-
-export const semuaResep: resepType[] = [
-  {
-    id: 'nbYwspYnnUIqeFxR4Osy',
-    imgUrl: '/images/Thumbnail-Images.png',
-    title: 'Sate Jamur',
-    desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'cTqsHFwfBZbpBvIdLTTV',
+    id: 'X9cCJaPWxAHs8C595wSh',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'rCt6YVqNPi55MAp8NuyM',
+    id: 'OiaBWqb85XmiwBNserej',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'yMaUbdeRPsEQ0dPOEZ7F',
+    id: 'J7TPoNVsiusq6TF1oPzd',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'sK22L0hoAPkZ0KmUQ06M',
+    id: '8KPOEYaoFa1ckZhvNj09',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'Dawx4lKqzOKh2vP1wZlq',
+    id: 'X60lc0JfnzjxR110ru0s',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'n8kwU5998GOvDupOKCKs',
+    id: 'HMnQjFsOS7kYbKaSDKqm',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: '3jG9QD04zcCPYD7XrTe0',
+    id: '5cSFjd9a0G3GPpyIAl2W',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: '4M2uj0G1tKXMljMlqLQ7',
+    id: 'eMLFxAkHvHUQM41cPfkL',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
   {
-    id: 'NrnI8y6BZDzMydZzSjE3',
+    id: 'dahbJd2pU8V3M70Pzbnf',
     imgUrl: '/images/Thumbnail-Images.png',
     title: 'Sate Jamur',
     desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
-  },
-  {
-    id: 'TfvGMtQKxTGwyCBJ1b5y',
-    imgUrl: '/images/Thumbnail-Images.png',
-    title: 'Sate Jamur',
-    desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
-  },
-  {
-    id: 'eruvri3N8KEqofFkzEQz',
-    imgUrl: '/images/Thumbnail-Images.png',
-    title: 'Sate Jamur',
-    desc: 'Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari menikmati teh hangat',
+    price: '10.000',
   },
 ];
