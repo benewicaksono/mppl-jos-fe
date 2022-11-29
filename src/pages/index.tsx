@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { resepFavorit } from '@/data/ResepFavorit';
+import { resepFavorit } from '@/data/Resep';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';

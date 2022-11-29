@@ -5,7 +5,7 @@ import { resepProps } from '@/data/Resep';
 
 import Card1 from '@/components/card/Card1';
 
-export default function CardContainer3({ data }: resepProps) {
+export default function CardContainer({ data }: resepProps) {
   return (
     <div className='bg-cdark3 text-clight'>
       <div className='layout flex flex-col gap-4 py-[70px]'>

@@ -1,6 +1,11 @@
+import Router from 'next/router';
 import * as React from 'react';
 
 export default function JumboSearch() {
+  function handleOnClick(url: string) {
+    Router.push(url);
+  }
+
   return (
     <div className='flex flex-col justify-center'>
       <div className='flex items-stretch '>
@@ -15,6 +20,9 @@ export default function JumboSearch() {
           className='btn flex items-center bg-cred px-6 py-2 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150  ease-in-out hover:bg-cred2 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg'
           type='button'
           id='button-addon2'
+          onClick={() => {
+            handleOnClick('/daftar');
+          }}
         >
           Mulai Sekarang
         </button>

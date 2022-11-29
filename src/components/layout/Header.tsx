@@ -43,10 +43,10 @@ export default function Header() {
                 variant='outline'
                 className='border-clight text-clight hover:border-cdark hover:bg-clight hover:text-cdark'
                 onClick={() => {
-                  handleOnClick('/');
+                  handleOnClick('/masuk');
                 }}
               >
-                Login
+                Masuk
               </Button>
             </li>
           </ul>
