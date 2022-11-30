@@ -52,16 +52,7 @@ export default function FlexSection(props: any) {
         <div className='layout flex justify-between py-[30px]'>
           <div className='flex h-full w-full flex-col content-center justify-center gap-4'>
             <h2 className='py-[30px] text-center'>{props.title}</h2>
-            <div className='flex flex-wrap'>
-              <div className='mb-10 w-full px-4 lg:w-1/2'>
-                <iframe
-                  width='560'
-                  height='315'
-                  src='https://www.youtube.com/embed/JpTqSzm4JOk'
-                  title='YouTube video player'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                ></iframe>
-              </div>
+            <div className='flex w-full justify-center'>
               <div className='mb-10 w-full px-4 lg:w-1/2'>
                 <iframe
                   width='560'

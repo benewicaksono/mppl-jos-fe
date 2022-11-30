@@ -82,12 +82,14 @@ export default function Daftar() {
                 type='password'
                 placeholder='Password'
               />
-              <button
-                className='focus:shadow-outline mt-4 w-full rounded bg-cred py-2 px-4 font-bold text-white hover:bg-cred2 focus:outline-none'
-                type='button'
-              >
-                Daftar
-              </button>
+              <Link href='/'>
+                <button
+                  className='focus:shadow-outline mt-4 w-full rounded bg-cred py-2 px-4 font-bold text-white hover:bg-cred2 focus:outline-none'
+                  type='button'
+                >
+                  Daftar
+                </button>
+              </Link>
             </form>
             <div className='flex w-96 justify-center'>
               <Link className='text-clight hover:text-gray-200' href='/masuk'>

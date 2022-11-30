@@ -13,8 +13,16 @@ export default function CardContainer({ data }: resepProps) {
           Resep Favorit
         </h2>
         <div className='flex flex-wrap justify-center gap-4'>
-          {data.map(({ imgUrl, title, desc }) => {
-            return <Card1 imgUrl={imgUrl} title={title} desc={desc} />;
+          {data.map(({ id, imgUrl, title, desc }) => {
+            return (
+              <Card1
+                jenis='resep'
+                id={id}
+                imgUrl={imgUrl}
+                title={title}
+                desc={desc}
+              />
+            );
           })}
         </div>
       </div>
