@@ -10,7 +10,7 @@ export default function CardContainer({ data }: resepProps) {
     <div className='bg-cdark3 text-clight'>
       <div className='layout flex flex-col gap-4 py-[70px]'>
         <h2 className='text-center' data-aos='fade-up' data-aos-duration='1000'>
-          Resep Favorit
+          Daftar Resep
         </h2>
         <div className='flex flex-wrap justify-center gap-4'>
           {data.map(({ id, imgUrl, title, desc }) => {

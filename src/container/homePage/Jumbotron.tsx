@@ -15,7 +15,7 @@ export default function Jumbotron() {
         <h3>Solusi Sehat untuk Tubuh Kuat</h3>
         <p className='mb-4'>
           Siap untuk menjadi lebih sehat? Masukkan alamat email anda untuk
-          memulai membership
+          memulai
         </p>
         <JumboSearch />
       </div>

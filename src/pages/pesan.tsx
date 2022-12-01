@@ -10,17 +10,17 @@ import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
-import CardContainer from '@/container/kateringPage/CardContainer';
-import Jumbotron from '@/container/kateringPage/Jumbotron';
+import CardContainer from '@/container/pesanPage/CardContainer';
+import Jumbotron from '@/container/pesanPage/Jumbotron';
 
-export default function Katering() {
+export default function Pesan() {
   useEffect(() => {
     AOS.init();
   }, []);
 
   return (
     <Layout>
-      <Seo templateTitle='Katalog Katering' />
+      <Seo templateTitle='Katalog Makanan' />
       <Header />
       <main>
         <Jumbotron />

@@ -13,12 +13,12 @@ export default function CardContainer({ data }: kateringProps) {
         data-aos='fade-up'
         data-aos-duration='1000'
       >
-        <h2 className='text-center'>Resep Favorit</h2>
+        <h2 className='text-center'>Daftar Makanan</h2>
         <div className='flex flex-wrap justify-center gap-4'>
           {data.map(({ id, imgUrl, title, desc, price }) => {
             return (
               <Card1
-                jenis='katering'
+                jenis='pesan'
                 id={id}
                 imgUrl={imgUrl}
                 title={title}

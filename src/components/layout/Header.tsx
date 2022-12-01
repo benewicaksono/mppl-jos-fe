@@ -8,7 +8,7 @@ import NavSearch from '@/components/searchbar/NavSearch';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/resep', label: 'Resep' },
-  { href: '/katering', label: 'Katering' },
+  { href: '/pesan', label: 'Pesan' },
 ];
 
 export default function Header() {
