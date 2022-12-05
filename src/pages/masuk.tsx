@@ -41,7 +41,7 @@ export default function Masuk() {
     toast.promise(
       axiosClient.post('/api/login', data).then((res) => {
         login(res.data);
-        router.push('/resep');
+        router.push('/');
       }),
 
       {
