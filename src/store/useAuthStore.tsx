@@ -26,8 +26,7 @@ const useAuthStore = create<
     isAuthenticated: false,
     isLoading: true,
     login: (user) => {
-      localStorage.setItem('token', user.data || user.access_token);
-      // user.data came from /api/login api, user.token came from /get/profile api
+      localStorage.setItem('access_token', user.data || user.access_token);
       set(
         produce<AuthStoreType>((state) => {
           state.isAuthenticated = true;
@@ -44,19 +43,20 @@ const useAuthStore = create<
     },
     loadUser: async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('access_token');
+
         if (token === null || token === undefined) {
           return;
         }
         const res = await axiosClient.get('/api/user');
         set(
           produce<AuthStoreType>((state) => {
-            state.user = res.data.data;
+            state.user = res.data;
             state.isAuthenticated = true;
           })
         );
       } catch (err) {
-        localStorage.removeItem('token');
+        localStorage.removeItem('access_token');
       } finally {
         set(
           produce<AuthStoreType>((state) => {
@@ -66,7 +66,7 @@ const useAuthStore = create<
       }
     },
     logout: () => {
-      localStorage.removeItem('token');
+      localStorage.removeItem('access_token');
       set(
         produce<AuthStoreType>((state) => {
           state.isAuthenticated = false;

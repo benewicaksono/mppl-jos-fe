@@ -19,6 +19,12 @@ const links = [
 export default function Header() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const logout = useAuthStore((state) => state.logout);
+  const loadUser = useAuthStore((state) => state.loadUser);
+
+  React.useEffect(() => {
+    loadUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function handleOnClick(url: string) {
     Router.push(url);
@@ -95,7 +101,7 @@ export default function Header() {
                                   : 'text-gray-900'
                               } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                               onClick={() => {
-                                logout(), Router.push('/');
+                                logout();
                               }}
                             >
                               Keluar
