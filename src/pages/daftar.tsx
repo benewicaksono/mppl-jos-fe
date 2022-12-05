@@ -1,19 +1,52 @@
+/* eslint-disable unused-imports/no-unused-vars */
 import AOS from 'aos';
 import Link from 'next/link';
+import router from 'next/router';
 import * as React from 'react';
 import { useEffect } from 'react';
+import {
+  FieldValues,
+  FormProvider,
+  SubmitHandler,
+  useForm,
+} from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 import 'aos/dist/aos.css';
 
+import axiosClient from '@/lib/axios';
+
+import Button from '@/components/buttons/Button';
+import Input from '@/components/forms/Input';
+import PasswordInput from '@/components/forms/PasswordInput';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
+import { defaultToastMessage } from '@/constant/toast';
+
 export default function Daftar() {
+  const methods = useForm();
+  const { handleSubmit } = methods;
+
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const handleRegis: SubmitHandler<FieldValues> = (data) => {
+    toast.promise(
+      axiosClient.post('/api/register', data).then((res) => {
+        router.push('/masuk');
+      }),
+
+      {
+        ...defaultToastMessage,
+        success: 'Berhasil! Anda Sudah masuk ke akun anda',
+        error: 'Email atau password salah',
+      }
+    );
+  };
 
   return (
     <Layout>
@@ -26,71 +59,74 @@ export default function Daftar() {
             data-aos='zoom-in'
             data-aos-duration='1000'
           >
-            <form className='flex w-96 flex-col gap-4'>
-              <input
-                className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
-                id='username'
-                type='text'
-                placeholder='Username'
-              />
+            <FormProvider {...methods}>
+              <form
+                className='flex w-96 flex-col gap-4'
+                onSubmit={handleSubmit(handleRegis)}
+              >
+                <Input
+                  className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
+                  id='username'
+                  type='text'
+                  placeholder='Username'
+                  label='Username'
+                />
 
-              <input
-                className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
-                id='namaDepan'
-                type='text'
-                placeholder='Nama Depan'
-              />
+                <Input
+                  className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
+                  id='first_name'
+                  type='text'
+                  placeholder='Nama Depan'
+                  label='Nama Depan'
+                />
 
-              <input
-                className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
-                id='namaBelakang'
-                type='text'
-                placeholder='Nama Belakang'
-              />
+                <Input
+                  className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
+                  id='last_name'
+                  type='text'
+                  placeholder='Nama Belakang'
+                  label='Nama Belakang'
+                />
 
-              <input
-                className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
-                id='email'
-                type='text'
-                placeholder='Email'
-              />
+                <Input
+                  className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
+                  id='email'
+                  type='text'
+                  placeholder='Email'
+                  label='Email'
+                />
 
-              <input
-                className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
-                id='konfirmasiEmail'
-                type='text'
-                placeholder='Konfirmasi Email'
-              />
+                <Input
+                  className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
+                  id='konfirmasiEmail'
+                  type='text'
+                  placeholder='Konfirmasi Email'
+                  label='Email'
+                />
 
-              <input
-                className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
-                id='password'
-                type='text'
-                placeholder='Password'
-              />
+                <PasswordInput
+                  className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
+                  id='password'
+                  type='text'
+                  placeholder='Password'
+                  label='Password'
+                />
 
-              <input
-                className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
-                id='konfirmasiPassword'
-                type='text'
-                placeholder='Konfirmasi Password'
-              />
-
-              <input
-                className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
-                id='password'
-                type='password'
-                placeholder='Password'
-              />
-              <Link href='/'>
-                <button
+                <PasswordInput
+                  className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
+                  id='konfirmasiPassword'
+                  type='text'
+                  placeholder='Konfirmasi Password'
+                  label='Konfirmasi Password'
+                />
+                <Button
                   className='focus:shadow-outline mt-4 w-full rounded bg-cred py-2 px-4 font-bold text-white hover:bg-cred2 focus:outline-none'
-                  type='button'
+                  type='submit'
                 >
                   Daftar
-                </button>
-              </Link>
-            </form>
+                </Button>
+              </form>
+            </FormProvider>
             <div className='flex w-96 justify-center'>
               <Link className='text-clight hover:text-gray-200' href='/masuk'>
                 Masuk
