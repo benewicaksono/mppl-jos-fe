@@ -1,6 +1,7 @@
 /* eslint-disable unused-imports/no-unused-vars */
 import AOS from 'aos';
 import Link from 'next/link';
+import router from 'next/router';
 import * as React from 'react';
 import { useEffect } from 'react';
 import {
@@ -23,11 +24,14 @@ import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
+import useAuthStore from '@/store/useAuthStore';
+
 import { defaultToastMessage } from '@/constant/toast';
 
 export default function Masuk() {
   const methods = useForm();
   const { handleSubmit } = methods;
+  const login = useAuthStore((state) => state.login);
 
   useEffect(() => {
     AOS.init();
@@ -36,7 +40,8 @@ export default function Masuk() {
   const handleLogin: SubmitHandler<FieldValues> = (data) => {
     toast.promise(
       axiosClient.post('/api/login', data).then((res) => {
-        // router.push('/resep');
+        login(res.data);
+        router.push('/resep');
       }),
 
       {
