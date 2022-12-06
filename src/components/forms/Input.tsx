@@ -5,7 +5,7 @@ import { HiExclamationCircle } from 'react-icons/hi';
 
 export type InputProps = {
   /** Input label */
-  label: string;
+  label?: string;
   /**
    * id to be initialized with React Hook Form,
    * must be the same with the pre-defined types.

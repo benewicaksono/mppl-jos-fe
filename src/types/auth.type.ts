@@ -8,5 +8,5 @@ export type User = {
 
 export type ProtectedRoute = {
   path: string;
-  type: 'auth' | 'all' | 'admin';
+  type: 'auth' | 'all' | 'admin' | 'needAuth';
 };

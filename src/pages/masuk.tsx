@@ -74,14 +74,12 @@ export default function Masuk() {
                     id='email'
                     type='text'
                     placeholder='Email'
-                    label='Email'
                   />
                   <PasswordInput
                     className='form-control relative m-0 block w-full min-w-0 flex-auto border-solid border-transparent bg-clight bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-clight focus:text-cdark focus:outline-none'
                     id='password'
                     type='password'
                     placeholder='Password'
-                    label='Password'
                   />
                   <Button
                     className='focus:shadow-outline mt-4 w-full rounded bg-cred py-2 px-4 font-bold text-white hover:bg-cred2 focus:outline-none'

@@ -42,8 +42,9 @@ export default function Daftar() {
 
       {
         ...defaultToastMessage,
-        success: 'Berhasil! Anda Sudah masuk ke akun anda',
-        error: 'Email atau password salah',
+        success:
+          'Berhasil melakukan pendaftaran akun, silakan masuk ke akun anda',
+        error: 'Gagal melakukan pendaftaran akun',
       }
     );
   };
@@ -69,7 +70,6 @@ export default function Daftar() {
                   id='username'
                   type='text'
                   placeholder='Username'
-                  label='Username'
                 />
 
                 <Input
@@ -77,7 +77,6 @@ export default function Daftar() {
                   id='first_name'
                   type='text'
                   placeholder='Nama Depan'
-                  label='Nama Depan'
                 />
 
                 <Input
@@ -85,7 +84,6 @@ export default function Daftar() {
                   id='last_name'
                   type='text'
                   placeholder='Nama Belakang'
-                  label='Nama Belakang'
                 />
 
                 <Input
@@ -93,7 +91,6 @@ export default function Daftar() {
                   id='email'
                   type='text'
                   placeholder='Email'
-                  label='Email'
                 />
 
                 <Input
@@ -101,7 +98,6 @@ export default function Daftar() {
                   id='konfirmasiEmail'
                   type='text'
                   placeholder='Konfirmasi Email'
-                  label='Email'
                 />
 
                 <PasswordInput
@@ -109,7 +105,6 @@ export default function Daftar() {
                   id='password'
                   type='text'
                   placeholder='Password'
-                  label='Password'
                 />
 
                 <PasswordInput
@@ -117,7 +112,6 @@ export default function Daftar() {
                   id='konfirmasiPassword'
                   type='text'
                   placeholder='Konfirmasi Password'
-                  label='Konfirmasi Password'
                 />
                 <Button
                   className='focus:shadow-outline mt-4 w-full rounded bg-cred py-2 px-4 font-bold text-white hover:bg-cred2 focus:outline-none'

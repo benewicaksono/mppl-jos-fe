@@ -5,7 +5,7 @@ import { HiEye, HiEyeOff } from 'react-icons/hi';
 
 export type PasswordInputProps = {
   /** Input label */
-  label: string;
+  label?: string;
   /**
    * id to be initialized with React Hook Form,
    * must be the same with the pre-defined types.

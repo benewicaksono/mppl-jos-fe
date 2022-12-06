@@ -1,16 +1,52 @@
 import { AppProps } from 'next/app';
+import { Toaster } from 'react-hot-toast';
+import { QueryClient, QueryClientProvider, QueryOptions } from 'react-query';
 
 import '@/styles/globals.css';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
 
-/**
- * !STARTERCONF info
- * ? `Layout` component is called in every page using `np` snippets. If you have consistent layout across all page, you can add it here too
- */
+import axiosClient from '@/lib/axios';
+
+import PrivateRoute from '@/components/PrivateRoute';
+
+import { ProtectedRoute } from '@/types/auth.type';
+
+const defaultQueryFn = async ({ queryKey }: QueryOptions) => {
+  const { data } = await axiosClient.get(`${queryKey?.[0]}`);
+  return data;
+};
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      queryFn: defaultQueryFn,
+    },
+  },
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const protectedRoutes: ProtectedRoute[] = [
+    { path: '/pesan', type: 'needAuth' },
+  ];
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <Toaster
+          reverseOrder={false}
+          toastOptions={{
+            style: {
+              borderRadius: '8px',
+              color: '#000',
+            },
+          }}
+        />
+      </div>
+      <PrivateRoute protectedRoutes={protectedRoutes}>
+        <Component {...pageProps} />
+      </PrivateRoute>
+    </QueryClientProvider>
+  );
 }
 
 export default MyApp;
