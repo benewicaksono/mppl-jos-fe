@@ -4,11 +4,7 @@ import { GrCircleInformation } from 'react-icons/gr';
 export default function KeranjangRingkasan() {
   return (
     <div className='layout text-clight'>
-      <div
-        className='flex flex-col gap-8'
-        data-aos='fade-up'
-        data-aos-duration='1000'
-      >
+      <div className='flex flex-col gap-8'>
         <div className='flex gap-4 bg-cgray3 p-6'>
           <div className='flex flex-col justify-center'>
             <GrCircleInformation className='text-2xl text-cdark' />

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Dialog, Transition } from '@headlessui/react';
+import Router from 'next/router';
 import * as React from 'react';
 import { Fragment, useState } from 'react';
 
@@ -21,6 +22,10 @@ export default function PesanPricePay(props: any) {
 
   function openModalVer() {
     setIsOpenVer(true);
+  }
+
+  function handleOnClick(url: string) {
+    Router.push(url);
   }
 
   return (
@@ -134,9 +139,12 @@ export default function PesanPricePay(props: any) {
                     <button
                       type='button'
                       className='inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
-                      onClick={closeModal}
+                      onClick={() => {
+                        closeModal(),
+                          handleOnClick(`/auth/user/${props.id}/keranjang`);
+                      }}
                     >
-                      Tutup
+                      Cek Keranjang Belanja
                     </button>
                   </div>
                 </Dialog.Panel>

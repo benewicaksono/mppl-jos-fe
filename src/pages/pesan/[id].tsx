@@ -36,7 +36,14 @@ export default function DetailPesan() {
             title={`${data.name}`}
             par={`${data.desc_b}`}
           />
-          <PesanPricePay cal={`${data.cal}`} price={`${data.price}`} />
+          <PesanPricePay
+            id={`${data.id}`}
+            imgUrl={`${data.url_thumb}`}
+            title={`${data.name}`}
+            desc={`${data.desc_a}`}
+            cal={`${data.cal}`}
+            price={`${data.price}`}
+          />
         </main>
         <Footer />
       </Layout>
