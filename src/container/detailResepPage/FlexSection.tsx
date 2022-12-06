@@ -6,7 +6,7 @@ export default function FlexSection(props: any) {
     return (
       <div className='bg-cdark3 text-clight'>
         <div className='layout flex justify-between py-[70px]'>
-          <div className='flex flex-col content-center justify-center gap-4'>
+          <div className='flex w-full flex-col content-center justify-center gap-4'>
             <h2 className='text-center'>{props.title}</h2>
             <p>{props.par}</p>
           </div>

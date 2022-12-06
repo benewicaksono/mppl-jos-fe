@@ -20,6 +20,7 @@ export default function Header() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const logout = useAuthStore((state) => state.logout);
   const loadUser = useAuthStore((state) => state.loadUser);
+  const user = useAuthStore((state) => state.user);
 
   React.useEffect(() => {
     loadUser();
@@ -87,8 +88,29 @@ export default function Header() {
                                   ? 'bg-violet-500 text-white'
                                   : 'text-gray-900'
                               } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                              onClick={() => {
+                                handleOnClick(`/auth/user/${user?.id}/profil`);
+                              }}
                             >
                               Profil
+                            </button>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              className={`${
+                                active
+                                  ? 'bg-violet-500 text-white'
+                                  : 'text-gray-900'
+                              } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                              onClick={() => {
+                                handleOnClick(
+                                  `/auth/user/${user?.id}/keranjang`
+                                );
+                              }}
+                            >
+                              Keranjang
                             </button>
                           )}
                         </Menu.Item>

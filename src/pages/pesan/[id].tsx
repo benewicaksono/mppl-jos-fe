@@ -1,4 +1,6 @@
+import { useRouter } from 'next/router';
 import * as React from 'react';
+import { useQuery } from 'react-query';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
@@ -8,27 +10,36 @@ import PesanPricePay from '@/components/sections/PesanPricePay';
 import Seo from '@/components/Seo';
 import FlexSection from '@/container/detailResepPage/FlexSection';
 
+import { PesanApi } from '@/types/pesan.type';
+
 export default function DetailPesan() {
-  return (
-    <Layout>
-      <Seo templateTitle='Resep' />
-      <Header />
-      <main>
-        <Jumbotron
-          title='Sate Jamur'
-          desc='Sate jamur, gurih manis berpadu untuk mengisi waktu sore sembari
-          menikmati teh hangat'
-          imgUrl='/images/SateJamur.jpg'
-        />
-        <FlexSection
-          version={1}
-          title='Sate Jamur'
-          par='Sate atau satai adalah makanan yang terbuat dari daging yang dipotong kecil-kecil dan ditusuk sedemikian rupa dengan tusukan lidi tulang daun kelapa atau bambu, kemudian dipanggang menggunakan bara arang kayu. Sate disajikan dengan berbagai macam bumbu yang bergantung pada variasi resep sate. Sesuai namanya, sate jamur menggunakan bahan dasar jamur sebagai paengganti daging
-          '
-        />
-        <PesanPricePay />
-      </main>
-      <Footer />
-    </Layout>
-  );
+  const router = useRouter();
+  const id = router.query.id as string;
+  const { data: queryData } = useQuery<PesanApi, Error>(`/api/foods/${id}`, {
+    enabled: id !== undefined,
+  });
+  const data = queryData?.data;
+
+  if (data) {
+    return (
+      <Layout>
+        <Seo templateTitle={`${data.name}`} />
+        <Header />
+        <main>
+          <Jumbotron
+            title={`${data.name}`}
+            desc={`${data.desc_a}`}
+            imgUrl={`${data.url_thumb}`}
+          />
+          <FlexSection
+            version={1}
+            title={`${data.name}`}
+            par={`${data.desc_b}`}
+          />
+          <PesanPricePay cal={`${data.cal}`} price={`${data.price}`} />
+        </main>
+        <Footer />
+      </Layout>
+    );
+  }
 }
