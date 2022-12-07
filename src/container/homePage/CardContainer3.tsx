@@ -1,11 +1,22 @@
 /* eslint-disable react/jsx-key */
 import * as React from 'react';
-
-import { resepProps } from '@/data/Resep';
+import { useQuery } from 'react-query';
 
 import Card1 from '@/components/card/Card1';
 
-export default function CardContainer3({ data }: resepProps) {
+import { Resep, ResepApi } from '@/types/resep.type';
+
+export default function CardContainer3() {
+  const { data: queryData } = useQuery<ResepApi, Error>('/api/foods');
+  const [resep, setResep] = React.useState<Resep[]>([]);
+  const data = queryData?.data;
+
+  React.useEffect(() => {
+    if (data) {
+      setResep(data);
+    }
+  }, [data]);
+
   return (
     <div className='bg-cdark3 text-clight'>
       <div
@@ -13,11 +24,32 @@ export default function CardContainer3({ data }: resepProps) {
         data-aos='fade-up'
         data-aos-duration='1000'
       >
-        <h2 className='text-center'>Resep Favorit</h2>
+        <h2 className='text-center'>Resep Terbaru</h2>
         <div className='flex flex-wrap justify-center gap-4'>
-          {data.map(({ imgUrl, title, desc }) => {
-            return <Card1 imgUrl={imgUrl} title={title} desc={desc} />;
-          })}
+          {data ? (
+            <>
+              {resep.map(({ id, name, url_thumb, desc_a }) => {
+                if (
+                  parseInt(id) == resep.length - 2 ||
+                  parseInt(id) == resep.length - 1 ||
+                  parseInt(id) == resep.length
+                )
+                  return (
+                    <Card1
+                      jenis='resep'
+                      id={id}
+                      imgUrl={`${url_thumb}`}
+                      title={name}
+                      desc={desc_a}
+                    />
+                  );
+              })}
+            </>
+          ) : (
+            <h1 className='text-center text-2xl'>
+              Tidak ada makananan untuk saat ini <br />
+            </h1>
+          )}
         </div>
       </div>
     </div>

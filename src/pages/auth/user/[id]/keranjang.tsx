@@ -119,7 +119,7 @@ export default function Keranjang() {
                               id='button-addon2'
                               onClick={() =>
                                 handleOnClick(
-                                  `https://api.whatsapp.com/send?phone=6281233144516&text=Halo%20mau%20order%20${name}%20sebanyak%20${qty}%20porsi.`
+                                  `https://api.whatsapp.com/send?phone=6281327304986&text=Halo%20saya%20mau%20order%20${name}%20sebanyak%20${qty}%20porsi.`
                                 )
                               }
                             >
